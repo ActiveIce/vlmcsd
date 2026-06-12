@@ -1,0 +1,13 @@
+[Unit]
+Description=Vlmcsd (KMS Emulator in C)
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/vlmcsd -j /etc/vlmcsd/vlmcsd.kmd -l syslog -D
+
+[Install]
+WantedBy=multi-user.target
